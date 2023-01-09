@@ -1,0 +1,22 @@
+{
+  "name": "tmrw-id-management-backend",
+  "version": "1.0.0",
+  "description": "The following command can be executed to up a local hasura environment:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/brewinteractive/tmrw-id-management-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/brewinteractive/tmrw-id-management-backend/issues"
+  },
+  "homepage": "https://bitbucket.org/brewinteractive/tmrw-id-management-backend#readme",
+  "devDependencies": {
+    "@aaronhayes/hasura-cli": "^2.16.1"
+  }
+}

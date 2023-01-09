@@ -1,29 +1,54 @@
-# README #
+# MOBILET-BACKEND
 
-This README would normally document whatever steps are necessary to get your application up and running.
+## Run
 
-### What is this repository for? ###
+The following command can be executed to up a local hasura environment:
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+```bash
+docker-compose up -d
+```
 
-### How do I get set up? ###
+## Applying Migrations
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+Hasura service in our docker environment applies found migrations in its migration folder automatically on start.
 
-### Contribution guidelines ###
+So, after getting changes from master branch with:
 
-* Writing tests
-* Code review
-* Other guidelines
+```bash
+git pull
+```
 
-### Who do I talk to? ###
+Containers should be up with:
 
-* Repo owner or admin
-* Other community or team contact
+```bash
+docker-compose up -d
+```
+
+or if they are already up, just restart them:
+
+```bash
+docker-compose restart
+```
+
+That's all. All migrations will be applied in your local server.
+
+## Reaching Hasura Console
+
+### Windows
+
+```powershell
+cd tmrw-id
+npx hasura console --admin-secret secret --api-host http://host.docker.internal --api-port 34954
+```
+
+## Squashing Migrations
+
+The following command can be executed to squash migrations into one migration from version `1589810113314`
+
+```bash
+docker-compose exec hasura hasura-cli migrate squash --name "<name>" --from 1589810113314
+```
+
+For detailed information see:
+
+[Hasura CLI: hasura migrate squash](https://hasura.io/docs/1.0/graphql/manual/hasura-cli/hasura_migrate_squash.html)
