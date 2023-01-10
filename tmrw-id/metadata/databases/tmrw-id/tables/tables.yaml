@@ -1,1 +1,7 @@
-[]
+- "!include public_clients.yaml"
+- "!include public_clients_grants.yaml"
+- "!include public_clients_users.yaml"
+- "!include public_grant_types.yaml"
+- "!include public_grants.yaml"
+- "!include public_response_types.yaml"
+- "!include public_users.yaml"
