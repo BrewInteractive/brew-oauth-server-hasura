@@ -4,5 +4,6 @@
 - "!include public_grant_types.yaml"
 - "!include public_grants.yaml"
 - "!include public_redirect_uris.yaml"
+- "!include public_refresh_tokens.yaml"
 - "!include public_response_types.yaml"
 - "!include public_users.yaml"
