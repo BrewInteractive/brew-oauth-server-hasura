@@ -38,7 +38,7 @@ That's all. All migrations will be applied in your local server.
 
 ```powershell
 cd tmrw-id
-npx hasura console --admin-secret secret --api-host http://host.docker.internal --api-port 34954
+npx hasura console --admin-secret secret --api-host http://localhost --api-port 9693
 ```
 
 ## Squashing Migrations
