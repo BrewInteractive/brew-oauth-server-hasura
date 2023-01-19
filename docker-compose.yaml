@@ -4,14 +4,14 @@ services:
     image: dpage/pgadmin4:6.18
     depends_on:
       - 'postgres-metadata'
-      - 'postgres-tmrw-id'
+      - 'postgres-brew-oauth-server'
     ports:
       - 38943:80
     volumes:
       - pgadmin_data:/var/lib/pgadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: info@tmrwid.com
-      PGADMIN_DEFAULT_PASSWORD: tmrwid
+      PGADMIN_DEFAULT_EMAIL: info@brewww.com
+      PGADMIN_DEFAULT_PASSWORD: brew
   postgres-metadata:
     image: postgres:15
     restart: always
@@ -19,11 +19,11 @@ services:
       - ./data/metadata_db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgrespassword
-  postgres-tmrw-id:
+  postgres-brew-oauth-server:
     image: postgres:15
     restart: always
     volumes:
-      - ./data/tmrw_id_db:/var/lib/postgresql/data
+      - ./data/brew_oauth_server_db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgrespassword
   hasura:
@@ -33,21 +33,21 @@ services:
       - '41893:41893'
     depends_on:
       - 'postgres-metadata'
-      - 'postgres-tmrw-id'
+      - 'postgres-brew-oauth-server'
     restart: always
     working_dir: /app
     volumes:
-      - ./tmrw-id:/app
-      - ./tmrw-id/migrations:/hasura-migrations
-      - ./tmrw-id/metadata:/hasura-metadata
+      - ./brew-oauth-server:/app
+      - ./brew-oauth-server/migrations:/hasura-migrations
+      - ./brew-oauth-server/metadata:/hasura-metadata
     environment:
       HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres-metadata:5432/postgres
-      HASURA_GRAPHQL_TMRW_ID_DATABASE_URL: postgres://postgres:postgrespassword@postgres-tmrw-id:5432/postgres
+      HASURA_GRAPHQL_TMRW_ID_DATABASE_URL: postgres://postgres:postgrespassword@postgres-brew-oauth-server:5432/postgres
+      HASURA_GRAPHQL_OAUTH_DATABASE_URL: postgres://postgres:postgrespassword@postgres-brew-oauth-server:5432/postgres
       HASURA_GRAPHQL_CONSOLE_ASSETS_DIR: /srv/console-assets
       HASURA_GRAPHQL_ENABLE_CONSOLE: 'true'
       HASURA_GRAPHQL_ENABLED_APIS: 'graphql,metadata,pgdump'
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
-      # HASURA_GRAPHQL_CORS_DOMAIN: 'http://host.docker.internal:35876, http://host.docker.internal:16554, http://localhost:16554, http://localhost:9695, http://localhost:3061/'
       HASURA_GRAPHQL_SERVER_PORT: 41893
       HASURA_GRAPHQL_ADMIN_SECRET: secret
       HASURA_GRAPHQL_DEV_MODE: 'true'

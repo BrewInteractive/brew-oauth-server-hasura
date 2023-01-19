@@ -1,4 +1,4 @@
-# TMRW-ID BACKEND API GATEWAY
+# BREW OAUTH SERVER HASURA
 
 ## Run
 
@@ -37,7 +37,7 @@ That's all. All migrations will be applied in your local server.
 ### Windows
 
 ```powershell
-cd tmrw-id
+cd brew-oauth-server
 npx hasura console --admin-secret secret --api-host http://localhost --api-port 9693
 ```
 

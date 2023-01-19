@@ -1,9 +1,9 @@
-- name: tmrw-id
+- name: oauth
   kind: postgres
   configuration:
     connection_info:
       database_url:
-        from_env: HASURA_GRAPHQL_TMRW_ID_DATABASE_URL
+        from_env: HASURA_GRAPHQL_OAUTH_DATABASE_URL
       isolation_level: read-committed
       use_prepared_statements: false
-  tables: "!include tmrw-id/tables/tables.yaml"
+  tables: "!include oauth/tables/tables.yaml"

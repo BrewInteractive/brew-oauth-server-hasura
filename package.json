@@ -1,21 +1,21 @@
 {
-  "name": "tmrw-id-management-backend",
+  "name": "brew-oauth-server-hasura",
   "version": "1.0.0",
-  "description": "The following command can be executed to up a local hasura environment:",
+  "description": "This repo contains Hasura of Brew.OAuth.Server.Net project.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/brewinteractive/tmrw-id-management-backend.git"
+    "url": "git+ssh://git@bitbucket.org/brewinteractive/brew-oauth-server-hasura.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://bitbucket.org/brewinteractive/tmrw-id-management-backend/issues"
+    "url": "https://bitbucket.org/brewinteractive/brew-oauth-server-hasura/issues"
   },
-  "homepage": "https://bitbucket.org/brewinteractive/tmrw-id-management-backend#readme",
+  "homepage": "https://bitbucket.org/brewinteractive/brew-oauth-server-hasura#readme",
   "devDependencies": {
     "@aaronhayes/hasura-cli": "^2.16.1"
   }
