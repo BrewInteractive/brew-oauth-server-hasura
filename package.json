@@ -17,6 +17,6 @@
   },
   "homepage": "https://bitbucket.org/brewinteractive/brew-oauth-server-hasura#readme",
   "devDependencies": {
-    "@aaronhayes/hasura-cli": "^2.16.1"
+    "hasura-cli": "^2.17.0"
   }
 }

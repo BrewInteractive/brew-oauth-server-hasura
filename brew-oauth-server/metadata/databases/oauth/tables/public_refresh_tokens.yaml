@@ -2,9 +2,9 @@ table:
   name: refresh_tokens
   schema: public
 object_relationships:
-  - name: client
+  - name: clients_user
     using:
-      foreign_key_constraint_on: client_id
+      foreign_key_constraint_on: client_user_id
   - name: replaced_by_token
     using:
       foreign_key_constraint_on: replaced_by_token_id
