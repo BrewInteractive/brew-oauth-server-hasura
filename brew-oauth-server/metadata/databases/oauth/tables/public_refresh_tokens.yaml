@@ -8,3 +8,11 @@ object_relationships:
   - name: replaced_by_token
     using:
       foreign_key_constraint_on: replaced_by_token_id
+array_relationships:
+  - name: replaced_tokens
+    using:
+      foreign_key_constraint_on:
+        column: replaced_by_token_id
+        table:
+          name: refresh_tokens
+          schema: public

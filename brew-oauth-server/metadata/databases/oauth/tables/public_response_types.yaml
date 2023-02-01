@@ -2,3 +2,11 @@ table:
   name: response_types
   schema: public
 is_enum: true
+array_relationships:
+  - name: grants
+    using:
+      foreign_key_constraint_on:
+        column: response_type
+        table:
+          name: grants
+          schema: public
