@@ -22,6 +22,8 @@ services:
   postgres-brew-oauth-server:
     image: postgres:15
     restart: always
+    ports:
+      - '28923:5432'
     volumes:
       - ./data/brew_oauth_server_db:/var/lib/postgresql/data
     environment:
