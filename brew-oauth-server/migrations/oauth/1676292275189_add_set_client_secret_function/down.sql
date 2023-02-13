@@ -1,0 +1,1 @@
+DROP FUNCTION public.set_client_secret()

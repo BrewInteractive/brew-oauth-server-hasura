@@ -1,0 +1,1 @@
+DROP TRIGGER set_client_id_trigger ON public.clients;
