@@ -1,1 +1,0 @@
-DROP FUNCTION public.set_client_id();
