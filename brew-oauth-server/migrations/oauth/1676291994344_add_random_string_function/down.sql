@@ -1,0 +1,1 @@
+DROP FUNCTION public.random_string(int4, text);
