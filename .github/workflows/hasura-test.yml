@@ -6,6 +6,9 @@ on:
   workflow_dispatch:
 jobs:
   build:
+    env:
+      HASURA_ENDPOINT: ${{ env.HASURA_ENDPOINT }}
+      HASURA_SECRET: ${{ env.HASURA_SECRET }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,11 +17,11 @@ jobs:
           echo "Install NPM Packages"
           npm i
           echo "Start migration"
-          echo ${{ secrets.HASURA_ENDPOINT }}
-          echo ${{ secrets.HASURA_SECRET }}
-          npx hasura migrate apply --endpoint ${{ secrets.HASURA_ENDPOINT }}  --admin-secret "${{ secrets.HASURA_SECRET }}" --project brew-oauth-server --all-databases
-          npx hasura metadata apply --endpoint ${{ secrets.HASURA_ENDPOINT }} --admin-secret "${{ secrets.HASURA_SECRET }}" --project brew-oauth-server
+          echo ${{ env.HASURA_ENDPOINT }}
+          echo ${{ env.HASURA_SECRET }}
+          npx hasura migrate apply --endpoint ${{ env.HASURA_ENDPOINT }}  --admin-secret "${{ env.HASURA_SECRET }}" --project brew-oauth-server --all-databases
+          npx hasura metadata apply --endpoint ${{ env.HASURA_ENDPOINT }} --admin-secret "${{ env.HASURA_SECRET }}" --project brew-oauth-server
           echo "Migration OK"
-          npx hasura metadata diff --endpoint ${{ secrets.HASURA_ENDPOINT }} --admin-secret "${{ secrets.HASURA_SECRET }}" --project brew-oauth-server
-          npx hasura migrate status --endpoint ${{ secrets.HASURA_ENDPOINT }} --admin-secret "${{ secrets.HASURA_SECRET }}" --project brew-oauth-server --all-databases
+          npx hasura metadata diff --endpoint ${{ env.HASURA_ENDPOINT }} --admin-secret "${{ env.HASURA_SECRET }}" --project brew-oauth-server
+          npx hasura migrate status --endpoint ${{ env.HASURA_ENDPOINT }} --admin-secret "${{ env.HASURA_SECRET }}" --project brew-oauth-server --all-databases
           echo "Migration status done"
