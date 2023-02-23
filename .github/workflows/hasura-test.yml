@@ -14,6 +14,10 @@ jobs:
           echo "Install NPM Packages"
           npm i
           echo "Start migration"
+          echo ${{ env.HASURA_ENDPOINT }}
+          echo ${{ secret.HASURA_ENDPOINT }}
+          echo ${{ env.HASURA_SECRET }}
+          echo ${{ secret.HASURA_SECRET }}
           npx hasura migrate apply --endpoint ${{ env.HASURA_ENDPOINT }}  --admin-secret "${{ env.HASURA_SECRET }}" --project brew-oauth-server --all-databases
           npx hasura metadata apply --endpoint ${{ env.HASURA_ENDPOINT }} --admin-secret "${{ env.HASURA_SECRET }}" --project brew-oauth-server
           echo "Migration OK"
