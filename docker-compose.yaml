@@ -29,7 +29,7 @@ services:
     environment:
       POSTGRES_PASSWORD: postgrespassword
   hasura:
-    image: hasura/graphql-engine:v2.17.1.cli-migrations-v3
+    image: hasura/graphql-engine:v2.19.0.cli-migrations-v3
     ports:
       - '34954:34954'
       - '41893:41893'
@@ -44,7 +44,6 @@ services:
       - ./brew-oauth-server/metadata:/hasura-metadata
     environment:
       HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres-metadata:5432/postgres
-      HASURA_GRAPHQL_TMRW_ID_DATABASE_URL: postgres://postgres:postgrespassword@postgres-brew-oauth-server:5432/postgres
       HASURA_GRAPHQL_OAUTH_DATABASE_URL: postgres://postgres:postgrespassword@postgres-brew-oauth-server:5432/postgres
       HASURA_GRAPHQL_CONSOLE_ASSETS_DIR: /srv/console-assets
       HASURA_GRAPHQL_ENABLE_CONSOLE: 'true'
