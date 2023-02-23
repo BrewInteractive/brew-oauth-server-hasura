@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hasura
+    hasuraService: custom
+  name: hasura
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hasura
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hasura
+    spec:
+      containers:
+        - image: hasura/graphql-engine:v2.19.0
+          imagePullPolicy: IfNotPresent
+          name: hasura
+          env:
+            - name: HASURA_GRAPHQL_ADMIN_SECRET
+              valueFrom:
+                secretKeyRef:
+                  key: admin-secret
+                  name: brew-oauth-hasura-secrets-test
+
+            - name: HASURA_GRAPHQL_METADATA_DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  key: metadata-db-url
+                  name: brew-oauth-hasura-secrets-test
+
+            - name: HASURA_GRAPHQL_OAUTH_DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  key: oauth-db-url
+                  name: brew-oauth-hasura-secrets-test
+
+            - name: HASURA_GRAPHQL_UNAUTHORIZED_ROLE
+              value: anonymous
+
+            - name: HASURA_GRAPHQL_ENABLE_CONSOLE
+              value: "true"
+
+            - name: HASURA_GRAPHQL_ENABLED_LOG_TYPES
+              value: startup, http-log, webhook-log, websocket-log, query-log
+              
+          ports:
+            - containerPort: 8080
+              protocol: TCP
