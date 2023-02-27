@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/brewinteractive/oauth-server-hasura.git"
+    "url": "git@github.com:BrewInteractive/oauth-server-hasura.git"
   },
   "author": "",
   "license": "ISC",
