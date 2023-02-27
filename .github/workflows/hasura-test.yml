@@ -14,9 +14,9 @@ jobs:
           echo "Install NPM Packages"
           npm i
           echo "Start migration"
-          npx hasura migrate apply --endpoint ${{ secrets.HASURA_ENDPOINT_TEST }}  --admin-secret "${{ secrets.HASURA_SECRET_TEST }}" --project brew-oauth-server --database-name oauth
-          npx hasura metadata apply --endpoint ${{ secrets.HASURA_ENDPOINT_TEST }} --admin-secret "${{ secrets.HASURA_SECRET_TEST }}" --project brew-oauth-server
+          npx hasura migrate apply --endpoint ${{ secrets.HASURA_ENDPOINT_TEST }}  --admin-secret "${{ secrets.HASURA_SECRET_TEST }}" --project oauth-server --database-name oauth
+          npx hasura metadata apply --endpoint ${{ secrets.HASURA_ENDPOINT_TEST }} --admin-secret "${{ secrets.HASURA_SECRET_TEST }}" --project oauth-server
           echo "Migration OK"
-          npx hasura metadata diff --endpoint ${{ secrets.HASURA_ENDPOINT_TEST }} --admin-secret "${{ secrets.HASURA_SECRET_TEST }}" --project brew-oauth-server
-          npx hasura migrate status --endpoint ${{ secrets.HASURA_ENDPOINT_TEST }} --admin-secret "${{ secrets.HASURA_SECRET_TEST }}" --project brew-oauth-server --database-name oauth
+          npx hasura metadata diff --endpoint ${{ secrets.HASURA_ENDPOINT_TEST }} --admin-secret "${{ secrets.HASURA_SECRET_TEST }}" --project oauth-server
+          npx hasura migrate status --endpoint ${{ secrets.HASURA_ENDPOINT_TEST }} --admin-secret "${{ secrets.HASURA_SECRET_TEST }}" --project oauth-server --database-name oauth
           echo "Migration status done"

@@ -37,7 +37,7 @@ That's all. All migrations will be applied in your local server.
 ### Windows
 
 ```powershell
-cd brew-oauth-server
+cd oauth-server
 npx hasura console --admin-secret secret --api-host http://localhost --api-port 9693
 ```
 

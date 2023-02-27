@@ -4,7 +4,7 @@ services:
     image: dpage/pgadmin4:6.18
     depends_on:
       - 'postgres-metadata'
-      - 'postgres-brew-oauth-server'
+      - 'postgres-oauth-server'
     ports:
       - 38943:80
     volumes:
@@ -19,13 +19,13 @@ services:
       - ./data/metadata_db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgrespassword
-  postgres-brew-oauth-server:
+  postgres-oauth-server:
     image: postgres:15
     restart: always
     ports:
       - '28923:5432'
     volumes:
-      - ./data/brew_oauth_server_db:/var/lib/postgresql/data
+      - ./data/oauth_server_db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgrespassword
   hasura:
@@ -35,16 +35,16 @@ services:
       - '41893:41893'
     depends_on:
       - 'postgres-metadata'
-      - 'postgres-brew-oauth-server'
+      - 'postgres-oauth-server'
     restart: always
     working_dir: /app
     volumes:
-      - ./brew-oauth-server:/app
-      - ./brew-oauth-server/migrations:/hasura-migrations
-      - ./brew-oauth-server/metadata:/hasura-metadata
+      - ./oauth-server:/app
+      - ./oauth-server/migrations:/hasura-migrations
+      - ./oauth-server/metadata:/hasura-metadata
     environment:
       HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres-metadata:5432/postgres
-      HASURA_GRAPHQL_OAUTH_DATABASE_URL: postgres://postgres:postgrespassword@postgres-brew-oauth-server:5432/postgres
+      HASURA_GRAPHQL_OAUTH_DATABASE_URL: postgres://postgres:postgrespassword@postgres-oauth-server:5432/postgres
       HASURA_GRAPHQL_CONSOLE_ASSETS_DIR: /srv/console-assets
       HASURA_GRAPHQL_ENABLE_CONSOLE: 'true'
       HASURA_GRAPHQL_ENABLED_APIS: 'graphql,metadata,pgdump'
