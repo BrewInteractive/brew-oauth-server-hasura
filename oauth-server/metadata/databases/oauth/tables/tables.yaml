@@ -1,4 +1,5 @@
 - "!include public_authorization_codes.yaml"
+- "!include public_authorization_codes__active.yaml"
 - "!include public_clients.yaml"
 - "!include public_clients_grants.yaml"
 - "!include public_clients_users.yaml"

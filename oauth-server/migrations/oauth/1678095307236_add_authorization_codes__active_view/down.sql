@@ -1,0 +1,1 @@
+DROP VIEW "public"."authorization_codes__active"
