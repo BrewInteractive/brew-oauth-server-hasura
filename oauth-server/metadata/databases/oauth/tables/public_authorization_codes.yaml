@@ -1,3 +1,7 @@
 table:
   name: authorization_codes
   schema: public
+object_relationships:
+  - name: client
+    using:
+      foreign_key_constraint_on: client_id
