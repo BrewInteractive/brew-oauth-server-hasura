@@ -23,3 +23,10 @@ array_relationships:
         table:
           name: redirect_uris
           schema: public
+  - name: authorization_codes
+    using:
+      foreign_key_constraint_on:
+        column: client_id
+        table:
+          name: authorization_codes
+          schema: public
