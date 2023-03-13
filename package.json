@@ -4,7 +4,8 @@
   "description": "This repo contains Hasura of Brew OAuth.Server project.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "console": "hasura-cli console --project oauth-server --admin-secret secret --api-host http://localhost --api-port 9693"
   },
   "repository": {
     "type": "git",
