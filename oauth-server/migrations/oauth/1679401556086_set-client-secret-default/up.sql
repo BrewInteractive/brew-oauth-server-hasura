@@ -1,0 +1,1 @@
+alter table public.clients alter column client_secret set default encode((random_string(48, '-_'::text))::bytea, 'base64'::text);
