@@ -2,6 +2,13 @@ table:
   name: clients
   schema: public
 array_relationships:
+  - name: authorization_codes
+    using:
+      foreign_key_constraint_on:
+        column: client_id
+        table:
+          name: authorization_codes
+          schema: public
   - name: clients_grants
     using:
       foreign_key_constraint_on:
@@ -22,11 +29,4 @@ array_relationships:
         column: client_id
         table:
           name: redirect_uris
-          schema: public
-  - name: authorization_codes
-    using:
-      foreign_key_constraint_on:
-        column: client_id
-        table:
-          name: authorization_codes
           schema: public

@@ -1,0 +1,4 @@
+-- Could not auto-generate a down migration.
+-- Please write an appropriate down migration for the SQL below:
+-- alter table "public"."clients" add column "issue_refresh_tokens" boolean
+--  not null default 'false';
