@@ -1,0 +1,3 @@
+table:
+  name: refresh_tokens__active
+  schema: public
