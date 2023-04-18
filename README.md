@@ -41,6 +41,16 @@ cd oauth-server
 npx hasura console --admin-secret secret --api-host http://localhost --api-port 9693
 ```
 
+## Update Database
+
+```powershell
+npm i
+
+hasura metadata apply --endpoint {ENDPOINT_URL}  --admin-secret "{ADMIN_SECRET}"" --project oauth-server
+
+npx hasura migrate apply --endpoint {ENDPOINT_URL}  --admin-secret "{ADMIN_SECRET}"" --project oauth-server --database-name oauth
+```
+
 ## Squashing Migrations
 
 The following command can be executed to squash migrations into one migration from version `1589810113314`
