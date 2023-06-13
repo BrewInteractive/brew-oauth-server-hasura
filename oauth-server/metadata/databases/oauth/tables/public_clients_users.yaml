@@ -6,6 +6,13 @@ object_relationships:
     using:
       foreign_key_constraint_on: client_id
 array_relationships:
+  - name: authorization_codes
+    using:
+      foreign_key_constraint_on:
+        column: client_user_id
+        table:
+          name: authorization_codes
+          schema: public
   - name: clients_users_authorization_codes
     using:
       foreign_key_constraint_on:
