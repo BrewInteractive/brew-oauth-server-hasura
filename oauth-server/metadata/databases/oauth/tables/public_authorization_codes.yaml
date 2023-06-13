@@ -2,6 +2,6 @@ table:
   name: authorization_codes
   schema: public
 object_relationships:
-  - name: client
+  - name: authorization_codes_clients_user
     using:
-      foreign_key_constraint_on: client_id
+      foreign_key_constraint_on: client_user_id
