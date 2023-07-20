@@ -9,3 +9,4 @@
 - "!include public_refresh_tokens.yaml"
 - "!include public_refresh_tokens__active.yaml"
 - "!include public_response_types.yaml"
+- "!include public_web_origins.yaml"

@@ -1,0 +1,3 @@
+table:
+  name: web_origins
+  schema: public
