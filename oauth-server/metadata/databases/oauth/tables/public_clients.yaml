@@ -16,6 +16,13 @@ array_relationships:
         table:
           name: clients_users
           schema: public
+  - name: clients_web_origins
+    using:
+      foreign_key_constraint_on:
+        column: client_id
+        table:
+          name: web_origins
+          schema: public
   - name: redirect_uris
     using:
       foreign_key_constraint_on:

@@ -1,0 +1,7 @@
+table:
+  name: web_origins
+  schema: public
+object_relationships:
+  - name: web_origins_client
+    using:
+      foreign_key_constraint_on: client_id
