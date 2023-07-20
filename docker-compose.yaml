@@ -1,10 +1,10 @@
-version: '3.3'
+version: "3.3"
 services:
   pgadmin:
     image: dpage/pgadmin4:6.18
     depends_on:
-      - 'postgres-metadata'
-      - 'postgres-oauth-server'
+      - "postgres-metadata"
+      - "postgres-oauth-server"
     ports:
       - 38943:80
     volumes:
@@ -23,19 +23,19 @@ services:
     image: postgres:15
     restart: always
     ports:
-      - '28923:5432'
+      - "28923:5432"
     volumes:
       - ./data/oauth_server_db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgrespassword
   hasura:
-    image: hasura/graphql-engine:v2.28.0.cli-migrations-v3
+    image: hasura/graphql-engine:v2.30.0.cli-migrations-v3
     ports:
-      - '34954:34954'
-      - '41893:41893'
+      - "34954:34954"
+      - "41893:41893"
     depends_on:
-      - 'postgres-metadata'
-      - 'postgres-oauth-server'
+      - "postgres-metadata"
+      - "postgres-oauth-server"
     restart: always
     working_dir: /app
     volumes:
@@ -46,12 +46,12 @@ services:
       HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres-metadata:5432/postgres
       HASURA_GRAPHQL_OAUTH_DATABASE_URL: postgres://postgres:postgrespassword@postgres-oauth-server:5432/postgres
       HASURA_GRAPHQL_CONSOLE_ASSETS_DIR: /srv/console-assets
-      HASURA_GRAPHQL_ENABLE_CONSOLE: 'true'
-      HASURA_GRAPHQL_ENABLED_APIS: 'graphql,metadata,pgdump'
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
+      HASURA_GRAPHQL_ENABLED_APIS: "graphql,metadata,pgdump"
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
       HASURA_GRAPHQL_SERVER_PORT: 41893
       HASURA_GRAPHQL_ADMIN_SECRET: secret
-      HASURA_GRAPHQL_DEV_MODE: 'true'
+      HASURA_GRAPHQL_DEV_MODE: "true"
 
 volumes:
   pgadmin_data:
