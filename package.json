@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/BrewInteractive/oauth-server-hasura#readme",
   "devDependencies": {
-    "hasura-cli": "^2.35.1"
+    "hasura-cli": "^2.36.1"
   }
 }

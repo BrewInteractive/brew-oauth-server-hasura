@@ -1,0 +1,7 @@
+table:
+  name: clients_users_scopes
+  schema: public
+object_relationships:
+  - name: clients_user
+    using:
+      foreign_key_constraint_on: client_user_id

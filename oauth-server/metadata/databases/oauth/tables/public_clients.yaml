@@ -9,6 +9,13 @@ array_relationships:
         table:
           name: clients_grants
           schema: public
+  - name: clients_scopes
+    using:
+      foreign_key_constraint_on:
+        column: client_id
+        table:
+          name: clients_scopes
+          schema: public
   - name: clients_users
     using:
       foreign_key_constraint_on:

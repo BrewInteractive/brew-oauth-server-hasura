@@ -20,6 +20,13 @@ array_relationships:
         table:
           name: authorization_codes
           schema: public
+  - name: clients_users_scopes
+    using:
+      foreign_key_constraint_on:
+        column: client_user_id
+        table:
+          name: clients_users_scopes
+          schema: public
   - name: refresh_tokens
     using:
       foreign_key_constraint_on:
