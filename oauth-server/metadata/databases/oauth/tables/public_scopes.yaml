@@ -1,0 +1,19 @@
+table:
+  name: scopes
+  schema: public
+is_enum: true
+array_relationships:
+  - name: clients_scopes
+    using:
+      foreign_key_constraint_on:
+        column: scope
+        table:
+          name: clients_scopes
+          schema: public
+  - name: clients_users_scopes
+    using:
+      foreign_key_constraint_on:
+        column: scope
+        table:
+          name: clients_users_scopes
+          schema: public
