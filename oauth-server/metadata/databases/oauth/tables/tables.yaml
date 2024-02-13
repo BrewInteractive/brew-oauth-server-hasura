@@ -1,3 +1,4 @@
+- "!include audit_logged_actions.yaml"
 - "!include public_authorization_codes.yaml"
 - "!include public_authorization_codes__active.yaml"
 - "!include public_clients.yaml"

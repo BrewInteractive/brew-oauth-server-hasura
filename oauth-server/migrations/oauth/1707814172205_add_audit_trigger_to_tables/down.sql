@@ -1,0 +1,12 @@
+-- Could not auto-generate a down migration.
+-- Please write an appropriate down migration for the SQL below:
+-- DO
+-- $$
+-- DECLARE
+--     table_name text;
+-- BEGIN
+--     FOR table_name IN (SELECT tablename FROM pg_tables WHERE schemaname = 'public') LOOP
+--         EXECUTE format('SELECT audit.audit_table(''%I.%I'')', 'public', table_name);
+--     END LOOP;
+-- END;
+-- $$;
