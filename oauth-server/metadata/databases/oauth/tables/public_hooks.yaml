@@ -1,0 +1,15 @@
+table:
+  name: hooks
+  schema: public
+object_relationships:
+  - name: client
+    using:
+      foreign_key_constraint_on: client_id
+array_relationships:
+  - name: hook_headers
+    using:
+      foreign_key_constraint_on:
+        column: hook_id
+        table:
+          name: hook_headers
+          schema: public
