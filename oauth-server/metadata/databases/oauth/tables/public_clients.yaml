@@ -30,6 +30,13 @@ array_relationships:
         table:
           name: web_origins
           schema: public
+  - name: hooks
+    using:
+      foreign_key_constraint_on:
+        column: client_id
+        table:
+          name: hooks
+          schema: public
   - name: redirect_uris
     using:
       foreign_key_constraint_on:
